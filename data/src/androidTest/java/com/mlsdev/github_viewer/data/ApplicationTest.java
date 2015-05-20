@@ -1,4 +1,4 @@
-package com.mlsdev.data;
+package com.mlsdev.github_viewer.data;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

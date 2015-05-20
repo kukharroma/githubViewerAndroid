@@ -1,4 +1,4 @@
-package com.mlsdev.domain;
+package com.mlsdev.github_viewer.domain;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
