@@ -1,4 +1,4 @@
-package com.mlsdev.githubviewer.data.network;
+package com.mlsdev.githubviewer.data.network.api;
 
 /**
  * Created by roma on 20.05.15.
