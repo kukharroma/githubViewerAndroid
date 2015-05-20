@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Created by roma on 20.05.15.
  */
-public class RepositoryEntity {
+public class ProjectEntity {
 
     @SerializedName("name")
     private String name;

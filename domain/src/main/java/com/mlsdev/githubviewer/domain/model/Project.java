@@ -3,7 +3,7 @@ package com.mlsdev.githubviewer.domain.model;
 /**
  * Created by roma on 20.05.15.
  */
-public class Repository {
+public class Project {
 
     private String name;
     private String language;
