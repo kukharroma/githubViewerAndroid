@@ -1,4 +1,16 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+buildscript{
+    repositories{
+        mavenCentral()
+    }
+
+    dependencies{
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+    }
+}
+
 
 android {
     compileSdkVersion 22
@@ -26,4 +38,9 @@ dependencies {
     compile 'com.google.code.gson:gson:2.3.1'
     compile project(':data')
     compile project(':domain')
+
+    // Dagger dependency
+    compile 'com.google.dagger:dagger:2.0'
+    apt 'com.google.dagger:dagger-compiler:2.0'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
 }
