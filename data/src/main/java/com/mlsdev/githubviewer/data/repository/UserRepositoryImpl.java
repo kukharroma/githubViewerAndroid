@@ -41,8 +41,8 @@ public class UserRepositoryImpl implements UserRepository {
             }
 
             @Override
-            public void onFailUser(VolleyError error) {
-                callback.onFailUser(error);
+            public void onFailUser(String message) {
+                callback.onFailUser(message);
             }
         };
         userDataStore.userGet(username, userCallback);

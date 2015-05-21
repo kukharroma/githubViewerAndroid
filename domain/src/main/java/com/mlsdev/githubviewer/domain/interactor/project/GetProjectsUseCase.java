@@ -14,7 +14,7 @@ public interface GetProjectsUseCase extends Interactor, Cancelable{
 
     interface Callback{
         void onSuccess(List<Project> projects);
-        void onFail(VolleyError error);
+        void onFail(String message);
     }
 
     void execute(String username, Callback callback);

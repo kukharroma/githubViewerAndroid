@@ -10,7 +10,7 @@ public interface UserDataStore {
 
     interface UserCallback{
         void onSuccessUser(UserEntity user);
-        void onFailUser(VolleyError error);
+        void onFailUser(String message);
     }
 
     void userGet(String username, UserCallback userCallback);

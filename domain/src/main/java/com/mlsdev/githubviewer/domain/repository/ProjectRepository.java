@@ -12,7 +12,7 @@ public interface ProjectRepository {
 
     interface ProjectCallback{
         void onSuccessProjects(List<Project> response);
-        void onFailProjects(VolleyError error);
+        void onFailProjects(String message);
     }
 
     void repositoriesGet(String username, ProjectCallback callback);

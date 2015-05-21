@@ -49,8 +49,8 @@ public class GetUserUseCaseImpl implements GetUserUseCase {
         }
 
         @Override
-        public void onFailUser(VolleyError error) {
-            notifyWithErrorUser(error);
+        public void onFailUser(String message) {
+            notifyWithErrorUser(message);
         }
     };
 
@@ -64,12 +64,12 @@ public class GetUserUseCaseImpl implements GetUserUseCase {
         });
     }
 
-    private void notifyWithErrorUser(final VolleyError error) {
+    private void notifyWithErrorUser(final String message) {
         this.postExecutionThread.post(new Runnable() {
             @Override
             public void run() {
                 if (callback != null)
-                    callback.onFailUser(error);
+                    callback.onFailUser(message);
             }
         });
     }

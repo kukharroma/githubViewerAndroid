@@ -47,9 +47,9 @@ public class GetProjectsUseCaseImpl implements GetProjectsUseCase {
         }
 
         @Override
-        public void onFailProjects(VolleyError error) {
+        public void onFailProjects(String message) {
             if(callback != null){
-                notifyWithErrorProjects(error);
+                notifyWithErrorProjects(message);
             }
         }
     };
@@ -62,10 +62,10 @@ public class GetProjectsUseCaseImpl implements GetProjectsUseCase {
         });
     }
 
-    private void notifyWithErrorProjects(final VolleyError error){
+    private void notifyWithErrorProjects(final String message){
         this.postExecutionThread.post(new Runnable() {
             @Override public void run() {
-                callback.onFail(error);
+                callback.onFail(message);
             }
         });
     }

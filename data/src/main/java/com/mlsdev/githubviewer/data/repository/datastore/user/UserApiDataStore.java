@@ -28,7 +28,7 @@ public class UserApiDataStore implements UserDataStore {
             }
 
             @Override
-            public void onFail(VolleyError error) {
+            public void onFail(String error) {
                 userCallback.onFailUser(error);
             }
         };

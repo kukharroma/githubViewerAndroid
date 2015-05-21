@@ -10,7 +10,7 @@ public interface UserRepository {
 
     interface UserCallback{
         void onSuccessUser(User user);
-        void onFailUser(VolleyError error);
+        void onFailUser(String message);
     }
 
     void userGet(String username, UserCallback callback);

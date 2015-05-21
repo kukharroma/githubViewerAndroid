@@ -24,7 +24,7 @@ public class RestApiImpl implements RestApi {
             }
 
             @Override public void onErrorResponse(VolleyError error) {
-                callback.onFail(error);
+                callback.onFail(error.getMessage());
             }
         };
         ExtendedVolley.getRequestQueue().add(new UserRequest(username, requestListener));
@@ -34,7 +34,7 @@ public class RestApiImpl implements RestApi {
     public void repositoriesGet(String username, final NetListCallback<ProjectEntity> callback) {
         final VolleyResponseListener<List<ProjectEntity>> requestListener = new VolleyResponseListener<List<ProjectEntity>>() {
             @Override public void onErrorResponse(VolleyError error) {
-                callback.onFail(error);
+                callback.onFail(error.getMessage());
             }
 
             @Override public void onResponse(List<ProjectEntity> response) {

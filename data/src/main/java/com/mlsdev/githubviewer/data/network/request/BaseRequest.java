@@ -39,6 +39,6 @@ public abstract class BaseRequest<T> extends Request<T> {
         if (volleyError.networkResponse != null && volleyError.networkResponse.statusCode == HttpStatus.SC_UNPROCESSABLE_ENTITY){
             return new VolleyError(NetworkErrors.DATA_WAS_MISSING);
         }
-        return super.parseNetworkError(volleyError);
+        return new VolleyError(NetworkErrors.NETWORK_ERROR);
     }
 }

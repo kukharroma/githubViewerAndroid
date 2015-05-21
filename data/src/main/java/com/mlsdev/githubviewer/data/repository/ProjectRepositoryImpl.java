@@ -42,8 +42,8 @@ public class ProjectRepositoryImpl implements ProjectRepository {
             }
 
             @Override
-            public void onFailProjects(VolleyError error) {
-                callback.onFailProjects(error);
+            public void onFailProjects(String message) {
+                callback.onFailProjects(message);
             }
         };
         projectDataStore.repositoriesGet(username, projectsCallback);

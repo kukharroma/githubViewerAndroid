@@ -12,7 +12,7 @@ import java.util.List;
 public interface RestApi {
 
     interface NetFailCallback{
-        void onFail(VolleyError volleyError);
+        void onFail(String volleyError);
     }
 
     interface NetModelCallback<T> extends NetFailCallback{

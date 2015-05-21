@@ -12,7 +12,7 @@ public interface ProjectDataStore {
 
     interface ProjectsCallback{
         void onSuccessProjects(List<ProjectEntity> projects);
-        void onFailProjects(VolleyError error);
+        void onFailProjects(String message);
     }
 
     void repositoriesGet(String username, ProjectsCallback callback);

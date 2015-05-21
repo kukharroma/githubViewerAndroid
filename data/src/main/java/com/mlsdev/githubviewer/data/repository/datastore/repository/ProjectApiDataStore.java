@@ -26,7 +26,7 @@ public class ProjectApiDataStore implements ProjectDataStore {
             }
 
             @Override
-            public void onFail(VolleyError error) {
+            public void onFail(String error) {
                 projectCallback.onFailProjects(error);
             }
         };
