@@ -1,7 +1,6 @@
 package com.mlsdev.githubviewer.data.executor;
 
 import com.mlsdev.githubviewer.domain.executor.ThreadExecutor;
-
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;

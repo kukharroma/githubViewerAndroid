@@ -1,4 +1,4 @@
-package com.mlsdev.githubviewer.data.network;
+package com.mlsdev.githubviewer.data.network.request;
 
 import com.android.volley.Response;
 

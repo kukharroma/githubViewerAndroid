@@ -26,7 +26,7 @@ import com.android.volley.toolbox.DiskBasedCache;
 import com.android.volley.toolbox.HttpStack;
 import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.ImageLoader;
-import com.mlsdev.githubviewer.data.cache.BitmapLruCache;
+import com.mlsdev.githubviewer.data.cache.provider.graphic.BitmapLruCache;
 
 import java.io.File;
 

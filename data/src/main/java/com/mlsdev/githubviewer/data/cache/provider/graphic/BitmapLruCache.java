@@ -1,4 +1,4 @@
-package com.mlsdev.githubviewer.data.cache;
+package com.mlsdev.githubviewer.data.cache.provider.graphic;
 
 import android.graphics.Bitmap;
 import android.util.LruCache;
