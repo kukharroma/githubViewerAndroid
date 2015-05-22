@@ -2,7 +2,6 @@ package com.mlsdev.githubviewer.data.repository;
 
 import android.content.Context;
 
-import com.android.volley.VolleyError;
 import com.mlsdev.githubviewer.data.cache.provider.user.UserCacheImpl;
 import com.mlsdev.githubviewer.data.entity.UserEntity;
 import com.mlsdev.githubviewer.data.entity.mapper.UserMapper;
@@ -10,6 +9,8 @@ import com.mlsdev.githubviewer.data.repository.datastore.user.UserDataStore;
 import com.mlsdev.githubviewer.data.repository.datastore.user.UserDataStoreFactory;
 import com.mlsdev.githubviewer.domain.model.User;
 import com.mlsdev.githubviewer.domain.repository.UserRepository;
+
+import javax.inject.Inject;
 
 /**
  * Created by roma on 20.05.15.
@@ -22,6 +23,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     private Context context;
 
+    @Inject
     public UserRepositoryImpl(Context context, UserDataStoreFactory userDataStoreFactory, UserCacheImpl userCache, UserMapper userMapper) {
         this.context = context;
         this.userDataStoreFactory = userDataStoreFactory;
@@ -35,8 +37,8 @@ public class UserRepositoryImpl implements UserRepository {
         UserDataStore.UserCallback userCallback = new UserDataStore.UserCallback() {
             @Override
             public void onSuccessUser(UserEntity userEntity) {
-                User user = UserRepositoryImpl.this.userMapper.transform(userEntity);
                 UserRepositoryImpl.this.userCache.put(userEntity);
+                User user = UserRepositoryImpl.this.userMapper.transform(userEntity);
                 callback.onSuccessUser(user);
             }
 

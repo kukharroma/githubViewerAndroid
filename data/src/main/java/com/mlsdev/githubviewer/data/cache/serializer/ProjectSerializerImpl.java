@@ -7,12 +7,20 @@ import com.mlsdev.githubviewer.data.entity.ProjectEntity;
 import java.lang.reflect.Type;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 /**
  * Created by roma on 21.05.15.
  */
+@Singleton
 public class ProjectSerializerImpl implements Serializer<List<ProjectEntity>> {
 
     private final Gson gson = new Gson();
+
+    @Inject
+    public ProjectSerializerImpl() {
+    }
 
     @Override
     public String serialize(List<ProjectEntity> projectEntities) {

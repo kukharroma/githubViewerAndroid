@@ -2,16 +2,17 @@ package com.mlsdev.githubviewer.data.repository;
 
 import android.content.Context;
 
-import com.android.volley.VolleyError;
 import com.mlsdev.githubviewer.data.cache.provider.user.ProjectCacheImpl;
 import com.mlsdev.githubviewer.data.entity.ProjectEntity;
 import com.mlsdev.githubviewer.data.entity.mapper.ProjectMapper;
-import com.mlsdev.githubviewer.data.repository.datastore.repository.ProjectDataStore;
-import com.mlsdev.githubviewer.data.repository.datastore.repository.ProjectDataStoreFactory;
+import com.mlsdev.githubviewer.data.repository.datastore.project.ProjectDataStore;
+import com.mlsdev.githubviewer.data.repository.datastore.project.ProjectDataStoreFactory;
 import com.mlsdev.githubviewer.domain.model.Project;
 import com.mlsdev.githubviewer.domain.repository.ProjectRepository;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 /**
  * Created by roma on 20.05.15.
@@ -23,6 +24,7 @@ public class ProjectRepositoryImpl implements ProjectRepository {
     private final ProjectMapper projectMapper;
     private final ProjectCacheImpl projectCache;
 
+    @Inject
     public ProjectRepositoryImpl(Context context, ProjectDataStoreFactory projectDataStoreFactory, ProjectCacheImpl projectCache, ProjectMapper projectMapper) {
         this.context = context;
         this.projectDataStoreFactory = projectDataStoreFactory;
@@ -36,8 +38,8 @@ public class ProjectRepositoryImpl implements ProjectRepository {
         ProjectDataStore.ProjectsCallback projectsCallback = new ProjectDataStore.ProjectsCallback() {
             @Override
             public void onSuccessProjects(List<ProjectEntity> projectsEntities) {
-                List<Project> projects = projectMapper.transform(projectsEntities);
                 ProjectRepositoryImpl.this.projectCache.put(projectsEntities);
+                List<Project> projects = projectMapper.transform(projectsEntities);
                 callback.onSuccessProjects(projects);
             }
 

@@ -1,6 +1,5 @@
 package com.mlsdev.githubviewer.data.repository.datastore.user;
 
-import com.android.volley.VolleyError;
 import com.mlsdev.githubviewer.data.entity.UserEntity;
 
 /**
@@ -8,8 +7,9 @@ import com.mlsdev.githubviewer.data.entity.UserEntity;
  */
 public interface UserDataStore {
 
-    interface UserCallback{
+    interface UserCallback {
         void onSuccessUser(UserEntity user);
+
         void onFailUser(String message);
     }
 

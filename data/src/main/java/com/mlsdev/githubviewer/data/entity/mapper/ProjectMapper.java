@@ -6,10 +6,18 @@ import com.mlsdev.githubviewer.domain.model.Project;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 /**
  * Created by roma on 20.05.15.
  */
+@Singleton
 public class ProjectMapper {
+
+    @Inject
+    public ProjectMapper() {
+    }
 
     public List<Project> transform(List<ProjectEntity> projectsEntities) {
         List<Project> projects = null;

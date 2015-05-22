@@ -1,6 +1,5 @@
 package com.mlsdev.githubviewer.domain.repository;
 
-import com.android.volley.VolleyError;
 import com.mlsdev.githubviewer.domain.model.Project;
 
 import java.util.List;
@@ -10,8 +9,9 @@ import java.util.List;
  */
 public interface ProjectRepository {
 
-    interface ProjectCallback{
+    interface ProjectCallback {
         void onSuccessProjects(List<Project> response);
+
         void onFailProjects(String message);
     }
 

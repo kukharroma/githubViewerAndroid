@@ -1,6 +1,5 @@
 package com.mlsdev.githubviewer.data.network.api;
 
-import com.android.volley.VolleyError;
 import com.mlsdev.githubviewer.data.entity.ProjectEntity;
 import com.mlsdev.githubviewer.data.entity.UserEntity;
 
@@ -11,15 +10,15 @@ import java.util.List;
  */
 public interface RestApi {
 
-    interface NetFailCallback{
+    interface NetFailCallback {
         void onFail(String volleyError);
     }
 
-    interface NetModelCallback<T> extends NetFailCallback{
+    interface NetModelCallback<T> extends NetFailCallback {
         void onSuccess(T response);
     }
 
-    interface NetListCallback<T> extends NetFailCallback{
+    interface NetListCallback<T> extends NetFailCallback {
         void onSuccess(List<T> response);
     }
 

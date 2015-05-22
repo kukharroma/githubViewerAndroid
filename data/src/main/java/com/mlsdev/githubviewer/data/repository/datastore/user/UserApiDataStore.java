@@ -1,6 +1,5 @@
 package com.mlsdev.githubviewer.data.repository.datastore.user;
 
-import com.android.volley.VolleyError;
 import com.mlsdev.githubviewer.data.cache.provider.user.UserCacheImpl;
 import com.mlsdev.githubviewer.data.entity.UserEntity;
 import com.mlsdev.githubviewer.data.network.api.RestApi;

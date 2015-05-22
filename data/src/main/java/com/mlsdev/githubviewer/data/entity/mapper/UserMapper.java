@@ -3,10 +3,18 @@ package com.mlsdev.githubviewer.data.entity.mapper;
 import com.mlsdev.githubviewer.data.entity.UserEntity;
 import com.mlsdev.githubviewer.domain.model.User;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 /**
  * Created by roma on 20.05.15.
  */
+@Singleton
 public class UserMapper {
+
+    @Inject
+    public UserMapper() {
+    }
 
     public User transform(UserEntity userEntity) {
         User user = null;

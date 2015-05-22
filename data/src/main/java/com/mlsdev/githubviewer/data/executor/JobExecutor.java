@@ -7,6 +7,8 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import javax.inject.Inject;
+
 /**
  * Created by roma on 20.05.15.
  */
@@ -28,6 +30,7 @@ public class JobExecutor implements ThreadExecutor {
 
     private final ThreadFactory threadFactory;
 
+    @Inject
     public JobExecutor() {
         this.workQueue = new LinkedBlockingQueue<>();
         this.threadFactory = new JobThreadFactory();

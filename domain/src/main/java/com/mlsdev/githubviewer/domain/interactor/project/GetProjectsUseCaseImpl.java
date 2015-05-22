@@ -1,6 +1,5 @@
 package com.mlsdev.githubviewer.domain.interactor.project;
 
-import com.android.volley.VolleyError;
 import com.mlsdev.githubviewer.domain.executor.PostExecutionThread;
 import com.mlsdev.githubviewer.domain.executor.ThreadExecutor;
 import com.mlsdev.githubviewer.domain.model.Project;
@@ -41,30 +40,32 @@ public class GetProjectsUseCaseImpl implements GetProjectsUseCase {
     ProjectRepository.ProjectCallback projectCallback = new ProjectRepository.ProjectCallback() {
         @Override
         public void onSuccessProjects(List<Project> response) {
-            if(callback != null){
+            if (callback != null) {
                 notifyWithSuccessProjects(response);
             }
         }
 
         @Override
         public void onFailProjects(String message) {
-            if(callback != null){
+            if (callback != null) {
                 notifyWithErrorProjects(message);
             }
         }
     };
 
-    private void notifyWithSuccessProjects(final List<Project> projects){
+    private void notifyWithSuccessProjects(final List<Project> projects) {
         this.postExecutionThread.post(new Runnable() {
-            @Override public void run() {
+            @Override
+            public void run() {
                 callback.onSuccess(projects);
             }
         });
     }
 
-    private void notifyWithErrorProjects(final String message){
+    private void notifyWithErrorProjects(final String message) {
         this.postExecutionThread.post(new Runnable() {
-            @Override public void run() {
+            @Override
+            public void run() {
                 callback.onFail(message);
             }
         });

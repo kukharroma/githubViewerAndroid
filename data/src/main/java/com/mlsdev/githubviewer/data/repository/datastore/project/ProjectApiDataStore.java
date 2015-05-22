@@ -1,10 +1,11 @@
-package com.mlsdev.githubviewer.data.repository.datastore.repository;
+package com.mlsdev.githubviewer.data.repository.datastore.project;
 
-import com.android.volley.VolleyError;
 import com.mlsdev.githubviewer.data.entity.ProjectEntity;
 import com.mlsdev.githubviewer.data.network.api.RestApi;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 /**
  * Created by roma on 20.05.15.

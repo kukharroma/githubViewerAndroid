@@ -7,6 +7,8 @@ import com.mlsdev.githubviewer.data.cache.provider.Cache;
 import com.mlsdev.githubviewer.data.cache.serializer.UserSerializerImpl;
 import com.mlsdev.githubviewer.data.entity.UserEntity;
 
+import javax.inject.Inject;
+
 /**
  * Created by roma on 21.05.15.
  */
@@ -19,6 +21,7 @@ public class UserCacheImpl implements Cache<UserEntity> {
     private final SharedPreferences preferences;
     private final UserSerializerImpl serializer;
 
+    @Inject
     public UserCacheImpl(Context context, UserSerializerImpl serializer) {
         this.context = context;
         this.serializer = serializer;

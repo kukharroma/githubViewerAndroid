@@ -9,6 +9,8 @@ import com.mlsdev.githubviewer.data.entity.ProjectEntity;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
  * Created by roma on 21.05.15.
  */
@@ -21,6 +23,7 @@ public class ProjectCacheImpl implements Cache<List<ProjectEntity>> {
     private final SharedPreferences preferences;
     private final ProjectSerializerImpl serializer;
 
+    @Inject
     public ProjectCacheImpl(Context context, ProjectSerializerImpl serializer) {
         this.context = context;
         this.serializer = serializer;
