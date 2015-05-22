@@ -4,6 +4,8 @@ import com.mlsdev.githubviewer.data.cache.provider.user.ProjectCacheImpl;
 import com.mlsdev.githubviewer.data.network.api.RestApi;
 import com.mlsdev.githubviewer.data.network.api.RestApiImpl;
 
+import javax.inject.Inject;
+
 /**
  * Created by roma on 20.05.15.
  */
@@ -11,6 +13,7 @@ public class ProjectDataStoreFactory {
 
     private final ProjectCacheImpl cache;
 
+    @Inject
     public ProjectDataStoreFactory(ProjectCacheImpl cache) {
         this.cache = cache;
     }
