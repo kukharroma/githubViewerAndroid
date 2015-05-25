@@ -5,4 +5,5 @@ package com.mlsdev.githubviewer.ui.fragment;
  */
 public interface BaseView {
     void initialize();
+    void showError(String message);
 }

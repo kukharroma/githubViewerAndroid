@@ -7,9 +7,13 @@ import com.mlsdev.githubviewer.domain.repository.ProjectRepository;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 /**
  * Created by roma on 21.05.15.
  */
+@Singleton
 public class GetProjectsUseCaseImpl implements GetProjectsUseCase {
 
     private final ProjectRepository projectRepository;
@@ -19,6 +23,7 @@ public class GetProjectsUseCaseImpl implements GetProjectsUseCase {
     private Callback callback = null;
     private String username;
 
+    @Inject
     public GetProjectsUseCaseImpl(ProjectRepository projectRepository, ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread) {
         this.projectRepository = projectRepository;
         this.threadExecutor = threadExecutor;

@@ -5,6 +5,8 @@ import android.os.Looper;
 
 import com.mlsdev.githubviewer.domain.executor.PostExecutionThread;
 
+import javax.inject.Inject;
+
 
 /**
  * MainThread (UI Thread) implementation based on a Handler instantiated with the main
@@ -14,7 +16,7 @@ public class UIThread implements PostExecutionThread {
 
   private final Handler handler;
 
-//  @Inject
+  @Inject
   public UIThread() {
     this.handler = new Handler(Looper.getMainLooper());
   }

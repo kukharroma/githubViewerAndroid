@@ -6,6 +6,10 @@ import com.mlsdev.githubviewer.ui.fragment.ProjectsView;
 /**
  * Created by roma on 22.05.15.
  */
-public interface ProjectsPresenter extends BasePresenter<ProjectsView>{
+public interface ProjectsPresenter extends BasePresenter<ProjectsView> {
+
+    void showUser();
+    void getProjects();
+    void showProjects();
 
 }

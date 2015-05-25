@@ -48,9 +48,8 @@ public class ExtendedVolley {
     }
 
 
-    public static void init(Context context, String baseUrl) {
-//    	Urls.BASE_URL = baseUrl;
-    	// define cache folder
+    public static void init(Context context) {
+
         File rootCache = context.getExternalCacheDir();
         if (rootCache == null) {
             Log.e("ExtendedVolley", "Can't find External Cache Dir, "

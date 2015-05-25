@@ -7,9 +7,13 @@ import com.mlsdev.githubviewer.domain.interactor.Cancelable;
 import com.mlsdev.githubviewer.domain.model.User;
 import com.mlsdev.githubviewer.domain.repository.UserRepository;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 /**
  * Created by roma on 21.05.15.
  */
+@Singleton
 public class GetUserUseCaseImpl implements GetUserUseCase {
 
     private final UserRepository userRepository;
@@ -19,6 +23,7 @@ public class GetUserUseCaseImpl implements GetUserUseCase {
     private Callback callback = null;
     private String username = null;
 
+    @Inject
     public GetUserUseCaseImpl(UserRepository userRepository, ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread) {
         this.userRepository = userRepository;
         this.threadExecutor = threadExecutor;

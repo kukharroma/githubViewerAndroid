@@ -7,4 +7,6 @@ import com.mlsdev.githubviewer.ui.fragment.SearchUserView;
  * Created by roma on 22.05.15.
  */
 public interface SearchUserPresenter extends BasePresenter<SearchUserView> {
+
+    void searchUser(String username);
 }

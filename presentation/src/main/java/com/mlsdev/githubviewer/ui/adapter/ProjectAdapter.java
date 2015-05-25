@@ -61,7 +61,7 @@ public class ProjectAdapter extends BaseAdapter {
         return convertView;
     }
 
-    private static class ViewHolder {
+    static class ViewHolder {
         @InjectView(R.id.tv_project_name) TextView tvProjectName;
         @InjectView(R.id.tv_project_language_name) TextView tvProjectLanguage;
         @InjectView(R.id.tv_fork_count) TextView tvForksCount;

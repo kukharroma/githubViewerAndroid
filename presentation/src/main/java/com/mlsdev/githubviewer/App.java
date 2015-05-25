@@ -3,9 +3,12 @@ package com.mlsdev.githubviewer;
 import android.app.Application;
 import android.os.Handler;
 
+import com.mlsdev.githubviewer.data.network.ExtendedVolley;
 import com.mlsdev.githubviewer.internal.di.components.ApplicationComponent;
 import com.mlsdev.githubviewer.internal.di.components.DaggerApplicationComponent;
 import com.mlsdev.githubviewer.internal.di.modules.ApplicationModule;
+import com.mlsdev.githubviewer.ui.fragment.impl.ProjectsFragment;
+import com.mlsdev.githubviewer.ui.fragment.impl.SearchUserFragment;
 
 
 /**
@@ -18,8 +21,9 @@ public class App extends Application {
 
     @Override
     public void onCreate() {
-        initDagger();
         super.onCreate();
+        initDagger();
+        ExtendedVolley.init(getApplicationContext());
     }
 
     private void initDagger(){
@@ -29,5 +33,13 @@ public class App extends Application {
 
     public Handler getHandler() {
         return handler;
+    }
+
+    public void inject(SearchUserFragment fragment){
+        this.applicationComponent.inject(fragment);
+    }
+
+    public void inject(ProjectsFragment fragment){
+        this.applicationComponent.inject(fragment);
     }
 }
