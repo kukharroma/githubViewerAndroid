@@ -5,13 +5,11 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 
 import com.mlsdev.github_viewer.R;
 import com.mlsdev.githubviewer.presenter.SearchUserPresenter;
 import com.mlsdev.githubviewer.ui.activity.MainActivity;
-import com.mlsdev.githubviewer.ui.activity.core.BaseActivity;
 import com.mlsdev.githubviewer.ui.fragment.SearchUserView;
 import com.mlsdev.githubviewer.ui.fragment.core.BaseFragment;
 import com.pnikosis.materialishprogress.ProgressWheel;
@@ -56,6 +54,7 @@ public class SearchUserFragment extends BaseFragment implements SearchUserView {
     @Override
     @OnClick(R.id.bt_search_user)
     public void searchUser() {
+        ((MainActivity) getActivity()).hideKeyboard();
         presenter.searchUser(etUsername.getText().toString());
     }
 

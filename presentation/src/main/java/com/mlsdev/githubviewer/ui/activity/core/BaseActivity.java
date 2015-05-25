@@ -10,4 +10,6 @@ public abstract class BaseActivity extends FragmentActivity{
     abstract public void showSearchUser();
 
     abstract public void showProjects();
+
+
 }

@@ -1,7 +1,6 @@
 package com.mlsdev.githubviewer.ui.fragment.impl;
 
 import android.os.Bundle;
-import android.support.v4.app.INotificationSideChannel;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

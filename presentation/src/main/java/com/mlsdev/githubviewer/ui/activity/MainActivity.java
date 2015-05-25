@@ -1,6 +1,8 @@
 package com.mlsdev.githubviewer.ui.activity;
 
+import android.app.Activity;
 import android.os.Bundle;
+import android.view.inputmethod.InputMethodManager;
 
 import com.mlsdev.github_viewer.R;
 import com.mlsdev.githubviewer.ui.activity.core.BaseActivity;
@@ -27,5 +29,10 @@ public class MainActivity extends BaseActivity {
     @Override
     public void showProjects() {
         getSupportFragmentManager().beginTransaction().replace(R.id.fr_container, new ProjectsFragment()).commit();
+    }
+
+    public void hideKeyboard(){
+        InputMethodManager inputMethodManager = (InputMethodManager)  this.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
     }
 }

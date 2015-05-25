@@ -27,7 +27,6 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/followers"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <ImageView
@@ -55,7 +54,6 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/user_company_name"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <com.makeramen.roundedimageview.RoundedImageView
@@ -91,7 +89,6 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/following"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <ImageView
