@@ -46,4 +46,14 @@ public class SearchUserPresenterImpl implements SearchUserPresenter {
             });
         }
     }
+
+    @Override
+    public void onPause() {
+        getUserUseCase.cancel();
+    }
+
+    @Override
+    public void onResume() {
+
+    }
 }

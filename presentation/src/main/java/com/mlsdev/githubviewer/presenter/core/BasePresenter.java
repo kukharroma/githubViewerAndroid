@@ -7,4 +7,8 @@ public interface BasePresenter<T> {
 
     void setView(T t);
 
+    void onPause();
+
+    void onResume();
+
 }

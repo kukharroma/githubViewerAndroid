@@ -98,4 +98,15 @@ public class ProjectsFragment extends BaseFragment implements ProjectsView {
         super.showToastMessage(message);
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        presenter.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        presenter.onResume();
+    }
 }

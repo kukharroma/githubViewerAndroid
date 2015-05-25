@@ -55,5 +55,14 @@ public class ProjectsPresenterImpl implements ProjectsPresenter {
         });
     }
 
+    @Override
+    public void onPause() {
+        getUserUseCase.cancel();
+        getProjectsUseCase.cancel();
+    }
 
+    @Override
+    public void onResume() {
+
+    }
 }

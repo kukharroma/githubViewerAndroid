@@ -78,4 +78,16 @@ public class SearchUserFragment extends BaseFragment implements SearchUserView {
     public void showError(String message) {
         super.showToastMessage(message);
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        presenter.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        presenter.onResume();
+    }
 }
