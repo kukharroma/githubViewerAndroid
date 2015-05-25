@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">github-viewer</string>
+    <string name="search_user">Search User</string>
+    <string name="input_user_name_to_know_more">Input username to know more:</string>
+    <string name="repositories">Repositories</string>
+    <string name="followers">followers</string>
+    <string name="following">following</string>
+    <string name="user_company_name">company name</string>
 </resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="pb_width">50dp</dimen>
+    <dimen name="pb_height">50dp</dimen>
+    <dimen name="icon_width">50dp</dimen>
+    <dimen name="icon_height">50dp</dimen>
+    <dimen name="user_icon_width">140dp</dimen>
+    <dimen name="user_icon_height">140dp</dimen>
+
+
+</resources>
