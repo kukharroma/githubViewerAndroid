@@ -9,6 +9,7 @@ public class User {
     private String icon;
     private int followers;
     private int following;
+    private String company;
 
     public String getName() {
         return name;
@@ -40,5 +41,13 @@ public class User {
 
     public void setFollowing(int following) {
         this.following = following;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
     }
 }

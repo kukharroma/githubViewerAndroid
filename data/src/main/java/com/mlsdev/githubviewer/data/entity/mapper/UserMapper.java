@@ -24,6 +24,7 @@ public class UserMapper {
             user.setIcon(userEntity.getIcon());
             user.setFollowers(userEntity.getFollowers());
             user.setFollowing(userEntity.getFollowing());
+            user.setCompany(userEntity.getCompany());
         }
         return user;
     }

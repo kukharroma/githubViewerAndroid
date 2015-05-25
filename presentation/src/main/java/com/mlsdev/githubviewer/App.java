@@ -9,6 +9,9 @@ import com.mlsdev.githubviewer.internal.di.components.DaggerApplicationComponent
 import com.mlsdev.githubviewer.internal.di.modules.ApplicationModule;
 import com.mlsdev.githubviewer.ui.fragment.impl.ProjectsFragment;
 import com.mlsdev.githubviewer.ui.fragment.impl.SearchUserFragment;
+import com.mlsdev.githubviewer.utils.ImageUtils;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 
 /**
@@ -23,12 +26,19 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         initDagger();
+        initImageLoader();
         ExtendedVolley.init(getApplicationContext());
     }
 
     private void initDagger(){
         this.applicationComponent = DaggerApplicationComponent.builder().applicationModule(new ApplicationModule(this)).build();
         this.applicationComponent.inject(this);
+    }
+
+    private void initImageLoader() {
+        ImageLoaderConfiguration config = ImageLoaderConfiguration.createDefault(this);
+        ImageLoader.getInstance().init(config);
+        ImageUtils.initDefaultImageLoaderOptions();
     }
 
     public Handler getHandler() {
