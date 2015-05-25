@@ -29,7 +29,7 @@ public class Urls {
     }
 
     public static String repositoreiesGet(String username) {
-        return apiBaseUrl() + Prefix.USERS + Action.REPOSITORIES.BASE + SLASH + username;
+        return apiBaseUrl() + Prefix.USERS + SLASH + username + Action.REPOSITORIES.BASE  ;
     }
 
 }

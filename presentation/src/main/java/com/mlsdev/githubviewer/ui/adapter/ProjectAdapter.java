@@ -56,8 +56,8 @@ public class ProjectAdapter extends BaseAdapter {
         Project project = projects.get(position);
         holder.tvProjectName.setText(project.getName());
         holder.tvProjectLanguage.setText(project.getLanguage());
-        holder.tvForksCount.setText(project.getForks());
-        holder.tvStarsCount.setText(project.getStars());
+        holder.tvForksCount.setText(""+project.getForks());
+        holder.tvStarsCount.setText(""+project.getStars());
         return convertView;
     }
 

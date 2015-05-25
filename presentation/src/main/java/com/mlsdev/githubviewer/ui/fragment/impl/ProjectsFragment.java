@@ -57,6 +57,8 @@ public class ProjectsFragment extends BaseFragment implements ProjectsView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = View.inflate(getApplication(), R.layout.fragment_detail_info_user, null);
         ButterKnife.inject(this, view);
+        presenter.getUser();
+        presenter.getProjects();
         return view;
     }
 
@@ -67,9 +69,9 @@ public class ProjectsFragment extends BaseFragment implements ProjectsView {
 
     @Override
     public void showUserInfo(User user) {
-        tvCompanyName.setText(user.getCompany());
-        tvFollowing.setText(user.getFollowing());
-        tvFollowers.setText(user.getFollowers());
+        tvCompanyName.setText(""+user.getCompany());
+        tvFollowing.setText(""+user.getFollowing());
+        tvFollowers.setText(""+user.getFollowers());
         ImageLoader.getInstance().displayImage(user.getIcon(), ivUserIcon, ImageUtils.getDefaultImageLoaderOptions());
     }
 
