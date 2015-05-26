@@ -17,6 +17,10 @@
     <!--textview-->
     <dimen name="textview_text_size">18sp</dimen>
 
-    <!-- user icon-->
+    <!--user icon-->
     <dimen name="user_icon_padding">5dp</dimen>
+
+    <!--fragments-->
+    <dimen name="base_padding_left">5dp</dimen>
+    <dimen name="base_padding_right">5dp</dimen>
 </resources>

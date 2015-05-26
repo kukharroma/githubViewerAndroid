@@ -3,6 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="@dimen/base_padding_left"
+    android:paddingRight="@dimen/base_padding_right"
     android:orientation="vertical">
 
     <TextView
@@ -20,9 +22,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:gravity="center"
         android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignRight="@+id/tv_input_username"
+        android:layout_alignEnd="@+id/tv_input_username"
+        android:layout_alignLeft="@+id/tv_input_username"
+        android:layout_alignStart="@+id/tv_input_username" />
 
     <Button
         android:id="@+id/bt_search_user"
@@ -31,7 +36,10 @@
         android:layout_gravity="center_horizontal"
         android:text="@string/search_user"
         android:layout_below="@+id/et_username"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignRight="@+id/et_username"
+        android:layout_alignEnd="@+id/et_username"
+        android:layout_alignLeft="@+id/et_username"
+        android:layout_alignStart="@+id/et_username" />
 
     <com.pnikosis.materialishprogress.ProgressWheel
         android:id="@+id/pb_search_user"
