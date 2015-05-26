@@ -2,6 +2,7 @@ package com.mlsdev.githubviewer.data.entity.mapper;
 
 import com.mlsdev.githubviewer.data.entity.ProjectEntity;
 import com.mlsdev.githubviewer.domain.model.Project;
+import com.mlsdev.githubviewer.domain.utils.Lg;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +34,7 @@ public class ProjectMapper {
                 projects.add(project);
             }
         }
+        Lg.p("transforming projects");
         return projects;
     }
 

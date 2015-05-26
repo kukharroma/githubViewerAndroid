@@ -9,6 +9,7 @@ import com.mlsdev.githubviewer.data.repository.datastore.project.ProjectDataStor
 import com.mlsdev.githubviewer.data.repository.datastore.project.ProjectDataStoreFactory;
 import com.mlsdev.githubviewer.domain.model.Project;
 import com.mlsdev.githubviewer.domain.repository.ProjectRepository;
+import com.mlsdev.githubviewer.domain.utils.Lg;
 
 import java.util.List;
 
@@ -49,6 +50,7 @@ public class ProjectRepositoryImpl implements ProjectRepository {
             }
         };
         projectDataStore.repositoriesGet(username, projectsCallback);
+        Lg.p("getting project from repository");
     }
 
     @Override

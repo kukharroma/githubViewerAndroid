@@ -9,6 +9,7 @@ import com.mlsdev.githubviewer.data.repository.datastore.user.UserDataStore;
 import com.mlsdev.githubviewer.data.repository.datastore.user.UserDataStoreFactory;
 import com.mlsdev.githubviewer.domain.model.User;
 import com.mlsdev.githubviewer.domain.repository.UserRepository;
+import com.mlsdev.githubviewer.domain.utils.Lg;
 
 import javax.inject.Inject;
 
@@ -48,6 +49,7 @@ public class UserRepositoryImpl implements UserRepository {
             }
         };
         userDataStore.userGet(username, userCallback);
+        Lg.u("getting user from repository");
     }
 
     @Override

@@ -7,6 +7,7 @@ import com.android.volley.toolbox.HttpHeaderParser;
 import com.mlsdev.githubviewer.data.entity.ProjectEntity;
 import com.mlsdev.githubviewer.data.network.Urls;
 import com.mlsdev.githubviewer.data.network.parser.ProjectEntityParser;
+import com.mlsdev.githubviewer.domain.utils.Lg;
 
 import org.apache.http.protocol.HTTP;
 
@@ -29,6 +30,7 @@ public class ProjectRequest extends BaseRequest<List<ProjectEntity>> {
         try {
             if (response != null && response.data != null) {
                 String json = new String(response.data, HTTP.UTF_8);
+                Lg.p("parsing success projects response ");
                 return Response.success(new ProjectEntityParser().parseList(json), HttpHeaderParser.parseCacheHeaders(response));
             }
         } catch (UnsupportedEncodingException ex) {
@@ -41,8 +43,9 @@ public class ProjectRequest extends BaseRequest<List<ProjectEntity>> {
     protected VolleyError parseNetworkError(VolleyError volleyError) {
         try {
             if ((null != volleyError) && (null != volleyError.networkResponse) && (null != volleyError.networkResponse.data)) {
-                String stringResponse = new String(volleyError.networkResponse.data, UTF_8);
-                return new VolleyError(stringResponse);
+                String errorResponse = new String(volleyError.networkResponse.data, UTF_8);
+                Lg.pe("network error during project request --> " + errorResponse);
+                return new VolleyError(errorResponse);
             }
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();

@@ -12,7 +12,7 @@ public class UserEntityParser implements ParseModel<UserEntity>{
 
     @Override
     public UserEntity parse(String json) {
-        Log.i(this.getClass().getName(), json);
+
         return ParserUtils.parser().fromJson(json, UserEntity.class);
     }
 }
