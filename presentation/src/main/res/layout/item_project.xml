@@ -59,6 +59,7 @@
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/iv_stars"
         android:layout_width="@dimen/icon_width"
+        android:paddingRight="@dimen/iv_star_padding_right"
         android:layout_height="@dimen/icon_height"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"

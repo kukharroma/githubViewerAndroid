@@ -27,4 +27,6 @@
     <dimen name="tv_repository_padding_bottom">5dp</dimen>
     <dimen name="tv_fork_padding">3dp</dimen>
     <dimen name="tv_stars_padding">3dp</dimen>
+
+    <dimen name="iv_star_padding_right">5dp</dimen>
 </resources>

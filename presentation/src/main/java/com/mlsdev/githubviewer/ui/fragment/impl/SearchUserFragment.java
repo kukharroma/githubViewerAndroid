@@ -54,7 +54,6 @@ public class SearchUserFragment extends BaseFragment implements SearchUserView {
     @Override
     @OnClick(R.id.bt_search_user)
     public void searchUser() {
-        ((MainActivity) getActivity()).hideKeyboard();
         presenter.searchUser(etUsername.getText().toString());
     }
 
