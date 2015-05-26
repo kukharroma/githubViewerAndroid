@@ -12,11 +12,11 @@
     <style name="BaseTheme.Button" parent="Widget.AppCompat.Button">
         <item name="android:textColor">@color/green</item>
         <item name="android:background">@color/white</item>
-        <item name="android:textSize">@dimen/button_text_size</item>
-        <item name="android:paddingLeft">@dimen/button_padding_left</item>
-        <item name="android:paddingRight">@dimen/button_padding_right</item>
-        <item name="android:paddingTop">@dimen/button_padding_top</item>
-        <item name="android:paddingBottom">@dimen/button_padding_bottom</item>
+        <item name="android:textSize">@dimen/bt_text_size</item>
+        <item name="android:paddingLeft">@dimen/bt_padding_left</item>
+        <item name="android:paddingRight">@dimen/bt_padding_right</item>
+        <item name="android:paddingTop">@dimen/bt_padding_top</item>
+        <item name="android:paddingBottom">@dimen/bt_padding_bottom</item>
     </style>
 
     <style name="BaseTheme.EditText" parent="Widget.AppCompat.EditText">

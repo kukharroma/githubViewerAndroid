@@ -88,8 +88,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/repositories"
+            android:paddingBottom="@dimen/tv_repository_padding_bottom"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textSize="@dimen/textview_text_size" />
+            android:textSize="@dimen/tv_text_size" />
     </LinearLayout>
 
     <RelativeLayout

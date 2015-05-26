@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -27,6 +28,7 @@
 
     <TextView
         android:id="@+id/tv_fork_count"
+        android:padding="@dimen/tv_fork_padding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
@@ -34,16 +36,18 @@
         android:layout_toStartOf="@+id/iv_fork"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <ImageView
+    <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/iv_fork"
         android:layout_width="@dimen/icon_width"
         android:layout_height="@dimen/icon_height"
+        app:riv_oval="true"
         android:layout_toLeftOf="@+id/tv_stars_count"
         android:layout_toStartOf="@+id/tv_stars_count"
         android:layout_centerVertical="true"
         android:src="@mipmap/ic_fork" />
 
     <TextView
+        android:padding="@dimen/tv_stars_padding"
         android:id="@+id/tv_stars_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,7 +56,7 @@
         android:layout_toStartOf="@+id/iv_stars"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <ImageView
+    <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/iv_stars"
         android:layout_width="@dimen/icon_width"
         android:layout_height="@dimen/icon_height"
