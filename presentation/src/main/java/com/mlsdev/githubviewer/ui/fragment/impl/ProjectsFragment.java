@@ -40,8 +40,6 @@ public class ProjectsFragment extends BaseFragment implements ProjectsView {
     @InjectView(R.id.tv_following) TextView tvFollowing;
     @InjectView(R.id.tv_user_company_name) TextView tvCompanyName;
     @InjectView(R.id.iv_user_icon) RoundedImageView ivUserIcon;
-    @InjectView(R.id.iv_open_in_browser) ImageView ivBrowsing;
-    @InjectView(R.id.iv_share) ImageView ivSharing;
     @InjectView(R.id.listView) ListView lvProjects;
     @InjectView(R.id.pb_projects) ProgressWheel pbProjects;
 
@@ -68,9 +66,9 @@ public class ProjectsFragment extends BaseFragment implements ProjectsView {
 
     @Override
     public void showUserInfo(User user) {
-        tvCompanyName.setText(""+user.getCompany());
-        tvFollowing.setText(""+user.getFollowing());
-        tvFollowers.setText(""+user.getFollowers());
+        tvCompanyName.setText(user.getName());
+        tvFollowing.setText(user.getFollowing() + "\n" + getApplication().getResources().getString(R.string.following));
+        tvFollowers.setText(user.getFollowers() + "\n" + getApplication().getResources().getString(R.string.followers));
         ImageLoader.getInstance().displayImage(user.getIcon(), ivUserIcon, ImageUtils.getDefaultImageLoaderOptions());
     }
 

@@ -14,8 +14,7 @@ import javax.inject.Singleton;
 @Singleton
 public class SearchUserPresenterImpl implements SearchUserPresenter {
 
-    private SearchUserView view;
-
+    SearchUserView view;
     GetUserUseCase getUserUseCase;
 
     @Inject

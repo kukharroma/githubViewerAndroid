@@ -1,64 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
+    android:layout_height="wrap_content">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
         android:id="@+id/tv_project_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_toLeftOf="@+id/tv_fork_count"
+        android:layout_toStartOf="@+id/tv_fork_count" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
         android:id="@+id/tv_project_language_name"
-        android:layout_below="@+id/tv_project_name"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tv_project_name"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="10"
+        android:layout_toLeftOf="@+id/tv_fork_count"
+        android:layout_toStartOf="@+id/tv_fork_count" />
+
+    <TextView
         android:id="@+id/tv_fork_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/iv_fork"
-        android:layout_toStartOf="@+id/iv_fork" />
+        android:layout_toStartOf="@+id/iv_fork"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <ImageView
+        android:id="@+id/iv_fork"
         android:layout_width="@dimen/icon_width"
         android:layout_height="@dimen/icon_height"
-        android:id="@+id/iv_fork"
-        android:src="@mipmap/ic_fork"
-        android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/tv_stars_count"
-        android:layout_toStartOf="@+id/tv_stars_count" />
+        android:layout_toStartOf="@+id/tv_stars_count"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/ic_fork" />
 
     <TextView
+        android:id="@+id/tv_stars_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="5"
-        android:id="@+id/tv_stars_count"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/iv_stars"
-        android:layout_toStartOf="@+id/iv_stars" />
+        android:layout_toStartOf="@+id/iv_stars"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <ImageView
+        android:id="@+id/iv_stars"
         android:layout_width="@dimen/icon_width"
         android:layout_height="@dimen/icon_height"
-        android:id="@+id/iv_stars"
-        android:src="@mipmap/ic_star"
-        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_centerVertical="true"
+        android:src="@mipmap/ic_star" />
 </RelativeLayout>

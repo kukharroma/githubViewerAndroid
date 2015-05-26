@@ -7,5 +7,16 @@
     <dimen name="user_icon_width">140dp</dimen>
     <dimen name="user_icon_height">140dp</dimen>
 
+    <!--button-->
+    <dimen name="button_padding_left">25dp</dimen>
+    <dimen name="button_padding_right">25dp</dimen>
+    <dimen name="button_padding_top">15dp</dimen>
+    <dimen name="button_padding_bottom">15dp</dimen>
+    <dimen name="button_text_size">18sp</dimen>
 
+    <!--textview-->
+    <dimen name="textview_text_size">18sp</dimen>
+
+    <!-- user icon-->
+    <dimen name="user_icon_padding">5dp</dimen>
 </resources>

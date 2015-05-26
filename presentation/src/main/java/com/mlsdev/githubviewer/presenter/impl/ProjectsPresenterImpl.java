@@ -17,8 +17,7 @@ import javax.inject.Singleton;
 @Singleton
 public class ProjectsPresenterImpl implements ProjectsPresenter {
 
-    private ProjectsView view;
-
+    ProjectsView view;
     GetUserUseCase getUserUseCase;
     GetProjectsUseCase getProjectsUseCase;
 
@@ -40,6 +39,7 @@ public class ProjectsPresenterImpl implements ProjectsPresenter {
 
     @Override
     public void getProjects() {
+        view.showLoading();
         getProjectsUseCase.execute(getUserUseCase.execute().getName(), new GetProjectsUseCase.Callback() {
             @Override
             public void onSuccess(List<Project> projects) {
