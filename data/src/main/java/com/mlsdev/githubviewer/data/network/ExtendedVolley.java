@@ -1,12 +1,12 @@
 /**
  * Copyright 2013 Ognyan Bankov
- *
+ * <p/>
  * Licensed under the Apache License, Version ic_add_pet.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-ic_add_pet.0
- *
+ * <p/>
+ * http://www.apache.org/licenses/LICENSE-ic_add_pet.0
+ * <p/>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -32,28 +32,20 @@ import java.io.File;
 
 
 public class ExtendedVolley {
-	
-	// Default maximum disk usage in bytes
-	private static final int DEFAULT_DISK_USAGE_BYTES = 25 * 1024 * 1024;
 
-	// Default cache folder name
-	private static final String DEFAULT_CACHE_DIR = ".urs";
-	
+    private static final int DEFAULT_DISK_USAGE_BYTES = 25 * 1024 * 1024;
+    private static final String DEFAULT_CACHE_DIR = ".github_viewer";
     private static RequestQueue mRequestQueue;
     private static ImageLoader mImageLoader;
 
-
     private ExtendedVolley() {
-        // no instances
     }
-
 
     public static void init(Context context) {
 
         File rootCache = context.getExternalCacheDir();
         if (rootCache == null) {
-            Log.e("ExtendedVolley", "Can't find External Cache Dir, "
-                    + "switching to application specific cache directory");
+            Log.e("ExtendedVolley", "Can't find External Cache Dir, " + "switching to application specific cache directory");
             rootCache = context.getCacheDir();
         }
 
@@ -66,7 +58,6 @@ public class ExtendedVolley {
         mRequestQueue = new RequestQueue(diskBasedCache, network);
         mRequestQueue.start();
         int memClass = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getMemoryClass();
-        // Use ic_dashboard/8th of the available memory for this memory cache.
         int cacheSize = 1024 * 1024 * memClass / 8;
         mImageLoader = new ImageLoader(mRequestQueue, new BitmapLruCache(cacheSize));
     }
@@ -80,13 +71,6 @@ public class ExtendedVolley {
     }
 
 
-    /**
-     * Returns instance of ImageLoader initialized with {@see FakeImageCache} which effectively means
-     * that no memory caching is used. This is useful for images that you know that will be show
-     * only once.
-     * 
-     * @return
-     */
     public static ImageLoader getImageLoader() {
         if (mImageLoader != null) {
             return mImageLoader;
@@ -94,5 +78,4 @@ public class ExtendedVolley {
             throw new IllegalStateException("ImageLoader not initialized");
         }
     }
-
 }

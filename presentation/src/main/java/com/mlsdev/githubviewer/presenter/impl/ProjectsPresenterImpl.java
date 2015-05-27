@@ -3,6 +3,7 @@ package com.mlsdev.githubviewer.presenter.impl;
 import com.mlsdev.githubviewer.domain.interactor.project.GetProjectsUseCase;
 import com.mlsdev.githubviewer.domain.interactor.user.GetUserUseCase;
 import com.mlsdev.githubviewer.domain.model.Project;
+import com.mlsdev.githubviewer.domain.utils.Lg;
 import com.mlsdev.githubviewer.presenter.ProjectsPresenter;
 import com.mlsdev.githubviewer.ui.fragment.ProjectsView;
 
@@ -34,11 +35,13 @@ public class ProjectsPresenterImpl implements ProjectsPresenter {
 
     @Override
     public void getUser() {
+        Lg.u("--- get User in presenter ---");
         view.showUserInfo(getUserUseCase.execute());
     }
 
     @Override
     public void getProjects() {
+        Lg.p("--- get Projects in presenter ---");
         view.showLoading();
         getProjectsUseCase.execute(getUserUseCase.execute().getName(), new GetProjectsUseCase.Callback() {
             @Override

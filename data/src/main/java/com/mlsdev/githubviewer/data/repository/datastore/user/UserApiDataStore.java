@@ -22,7 +22,6 @@ public class UserApiDataStore implements UserDataStore {
         RestApi.NetModelCallback<UserEntity> callback = new RestApi.NetModelCallback<UserEntity>() {
             @Override
             public void onSuccess(UserEntity response) {
-                if (response != null) cache.put(response);
                 userCallback.onSuccessUser(response);
             }
 

@@ -41,6 +41,7 @@ public class SearchUserPresenterImpl implements SearchUserPresenter {
                 @Override
                 public void onFailUser(String message) {
                     view.showError(message);
+                    view.hideLoading();
                 }
             });
         }
