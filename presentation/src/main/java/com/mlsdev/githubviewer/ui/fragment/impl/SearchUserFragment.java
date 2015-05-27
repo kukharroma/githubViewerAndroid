@@ -41,7 +41,7 @@ public class SearchUserFragment extends BaseFragment implements SearchUserView {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = View.inflate(getActivity(), R.layout.fragment_search_user, null);
+        View view = View.inflate(getActivity(), R.layout.fragment_user, null);
         ButterKnife.inject(this, view);
         return view;
     }

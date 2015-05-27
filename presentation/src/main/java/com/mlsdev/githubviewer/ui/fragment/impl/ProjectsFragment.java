@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -52,7 +51,7 @@ public class ProjectsFragment extends BaseFragment implements ProjectsView {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = View.inflate(getApplication(), R.layout.fragment_detail_info_user, null);
+        View view = View.inflate(getApplication(), R.layout.fragment_projects, null);
         ButterKnife.inject(this, view);
         presenter.getUser();
         presenter.getProjects();
