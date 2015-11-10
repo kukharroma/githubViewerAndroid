@@ -38,8 +38,8 @@ public class UserRepositoryImpl implements UserRepository {
         UserDataStore.UserCallback userCallback = new UserDataStore.UserCallback() {
             @Override
             public void onSuccessUser(UserEntity userEntity) {
-                UserRepositoryImpl.this.userCache.put(userEntity);
-                User user = UserRepositoryImpl.this.userMapper.transform(userEntity);
+                userCache.put(userEntity);
+                User user = userMapper.transform(userEntity);
                 callback.onSuccessUser(user);
             }
 

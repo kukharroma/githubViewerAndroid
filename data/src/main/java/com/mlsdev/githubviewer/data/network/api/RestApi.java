@@ -5,25 +5,20 @@ import com.mlsdev.githubviewer.data.entity.UserEntity;
 
 import java.util.List;
 
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.http.GET;
+import retrofit.http.Path;
+
 /**
  * Created by roma on 20.05.15.
  */
 public interface RestApi {
 
-    interface NetFailCallback {
-        void onFail(String volleyError);
-    }
+    @GET("/users/{username}")
+    Call<UserEntity> userGet(@Path("username") String username);
 
-    interface NetModelCallback<T> extends NetFailCallback {
-        void onSuccess(T response);
-    }
-
-    interface NetListCallback<T> extends NetFailCallback {
-        void onSuccess(List<T> response);
-    }
-
-    void userGet(String username, final NetModelCallback<UserEntity> callback);
-
-    void repositoriesGet(String username, final NetListCallback<ProjectEntity> callback);
+    @GET("users/{username}/repos")
+    Call<List<ProjectEntity>> repositoriesGet(@Path("username") String username);
 
 }

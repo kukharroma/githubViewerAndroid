@@ -44,7 +44,7 @@ public class GetUserUseCaseImpl implements GetUserUseCase {
 
     @Override
     public void run() {
-        this.userRepository.userGet(this.username, userRepositoryCallback);
+        userRepository.userGet(this.username, userRepositoryCallback);
     }
 
     UserRepository.UserCallback userRepositoryCallback = new UserRepository.UserCallback() {

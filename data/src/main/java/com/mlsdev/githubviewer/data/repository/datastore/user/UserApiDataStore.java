@@ -1,8 +1,12 @@
 package com.mlsdev.githubviewer.data.repository.datastore.user;
 
-import com.mlsdev.githubviewer.data.cache.provider.user.UserCacheImpl;
 import com.mlsdev.githubviewer.data.entity.UserEntity;
 import com.mlsdev.githubviewer.data.network.api.RestApi;
+
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.Response;
+import retrofit.Retrofit;
 
 /**
  * Created by roma on 20.05.15.
@@ -10,26 +14,24 @@ import com.mlsdev.githubviewer.data.network.api.RestApi;
 public class UserApiDataStore implements UserDataStore {
 
     private final RestApi restApi;
-    private final UserCacheImpl cache;
 
-    public UserApiDataStore(RestApi restApi, UserCacheImpl cache) {
+    public UserApiDataStore(RestApi restApi) {
         this.restApi = restApi;
-        this.cache = cache;
     }
 
     @Override
     public void userGet(String username, final UserCallback userCallback) {
-        RestApi.NetModelCallback<UserEntity> callback = new RestApi.NetModelCallback<UserEntity>() {
+        Call<UserEntity> call = restApi.userGet(username);
+        call.enqueue(new Callback<UserEntity>() {
             @Override
-            public void onSuccess(UserEntity response) {
-                userCallback.onSuccessUser(response);
+            public void onResponse(Response<UserEntity> response, Retrofit retrofit) {
+                userCallback.onSuccessUser(response.body());
             }
 
             @Override
-            public void onFail(String error) {
-                userCallback.onFailUser(error);
+            public void onFailure(Throwable t) {
+                userCallback.onFailUser(t.getMessage());
             }
-        };
-        this.restApi.userGet(username, callback);
+        });
     }
 }
