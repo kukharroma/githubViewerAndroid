@@ -3,7 +3,6 @@ package com.mlsdev.githubviewer;
 import android.app.Application;
 import android.os.Handler;
 
-import com.mlsdev.githubviewer.data.network.ExtendedVolley;
 import com.mlsdev.githubviewer.internal.di.components.ApplicationComponent;
 import com.mlsdev.githubviewer.internal.di.components.DaggerApplicationComponent;
 import com.mlsdev.githubviewer.internal.di.modules.ApplicationModule;
@@ -27,7 +26,6 @@ public class App extends Application {
         super.onCreate();
         initDagger();
         initImageLoader();
-        ExtendedVolley.init(getApplicationContext());
     }
 
     private void initDagger(){

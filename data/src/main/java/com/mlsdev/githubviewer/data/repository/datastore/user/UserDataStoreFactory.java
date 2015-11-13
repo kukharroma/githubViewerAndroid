@@ -1,8 +1,8 @@
 package com.mlsdev.githubviewer.data.repository.datastore.user;
 
 import com.mlsdev.githubviewer.data.cache.provider.user.UserCacheImpl;
-import com.mlsdev.githubviewer.data.network.api.RestApi;
-import com.mlsdev.githubviewer.data.network.api.RestApiImpl;
+import com.mlsdev.githubviewer.data.network.api.GitHubViewerRestApi;
+import com.mlsdev.githubviewer.data.network.api.GitHubViewerRestApiImpl;
 import com.mlsdev.githubviewer.domain.utils.Lg;
 
 import javax.inject.Inject;
@@ -20,7 +20,7 @@ public class UserDataStoreFactory {
     }
 
     public UserApiDataStore createApiDataStore() {
-        RestApi restApi = new RestApiImpl();
+        GitHubViewerRestApi restApi = new GitHubViewerRestApiImpl();
         Lg.u("created user api data store");
         return new UserApiDataStore(restApi, this.cache);
     }

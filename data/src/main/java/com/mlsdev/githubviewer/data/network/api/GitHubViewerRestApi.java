@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by roma on 20.05.15.
  */
-public interface RestApi {
+public interface GitHubViewerRestApi {
 
     interface NetFailCallback {
         void onFail(String volleyError);

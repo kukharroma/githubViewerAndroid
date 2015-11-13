@@ -1,26 +1,24 @@
 package com.mlsdev.githubviewer.data.repository.datastore.project;
 
 import com.mlsdev.githubviewer.data.entity.ProjectEntity;
-import com.mlsdev.githubviewer.data.network.api.RestApi;
+import com.mlsdev.githubviewer.data.network.api.GitHubViewerRestApi;
 
 import java.util.List;
-
-import javax.inject.Inject;
 
 /**
  * Created by roma on 20.05.15.
  */
 public class ProjectApiDataStore implements ProjectDataStore {
 
-    private final RestApi restApi;
+    private final GitHubViewerRestApi restApi;
 
-    public ProjectApiDataStore(RestApi restApi) {
+    public ProjectApiDataStore(GitHubViewerRestApi restApi) {
         this.restApi = restApi;
     }
 
     @Override
     public void repositoriesGet(String username, final ProjectsCallback projectCallback) {
-        RestApi.NetListCallback<ProjectEntity> callback = new RestApi.NetListCallback<ProjectEntity>() {
+        GitHubViewerRestApi.NetListCallback<ProjectEntity> callback = new GitHubViewerRestApi.NetListCallback<ProjectEntity>() {
             @Override
             public void onSuccess(List<ProjectEntity> response) {
                 projectCallback.onSuccessProjects(response);
