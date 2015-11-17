@@ -1,9 +1,10 @@
 package com.mlsdev.githubviewer.presenter.impl;
 
-import com.mlsdev.githubviewer.domain.interactor.project.GetProjectsUseCase;
-import com.mlsdev.githubviewer.domain.interactor.user.GetUserUseCase;
+import com.mlsdev.githubviewer.domain.interactor.BaseSubscriber;
+import com.mlsdev.githubviewer.domain.interactor.GetProjectsUseCase;
+import com.mlsdev.githubviewer.domain.interactor.GetUserUseCase;
 import com.mlsdev.githubviewer.domain.model.Project;
-import com.mlsdev.githubviewer.domain.utils.Lg;
+import com.mlsdev.githubviewer.domain.model.User;
 import com.mlsdev.githubviewer.presenter.ProjectsPresenter;
 import com.mlsdev.githubviewer.ui.fragment.ProjectsView;
 
@@ -11,6 +12,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+
+import dalvik.system.BaseDexClassLoader;
 
 /**
  * Created by roma on 22.05.15.
@@ -21,6 +24,7 @@ public class ProjectsPresenterImpl implements ProjectsPresenter {
     ProjectsView view;
     GetUserUseCase getUserUseCase;
     GetProjectsUseCase getProjectsUseCase;
+
 
     @Inject
     public ProjectsPresenterImpl(GetUserUseCase getUserUseCase, GetProjectsUseCase getProjectsUseCase) {
@@ -34,38 +38,44 @@ public class ProjectsPresenterImpl implements ProjectsPresenter {
     }
 
     @Override
-    public void getUser() {
-        Lg.u("--- get User in presenter ---");
-        view.showUserInfo(getUserUseCase.execute());
-    }
-
-    @Override
-    public void getProjects() {
-        Lg.p("--- get Projects in presenter ---");
+    public void getUserAndProject() {
         view.showLoading();
-        getProjectsUseCase.execute(getUserUseCase.execute().getName(), new GetProjectsUseCase.Callback() {
-            @Override
-            public void onSuccess(List<Project> projects) {
-                view.hideLoading();
-                view.showProjects(projects);
-            }
-
-            @Override
-            public void onFail(String message) {
-                view.hideLoading();
-                view.showError(message);
-            }
-        });
+        getUserUseCase.execute(new UserInfoSubscriber());
     }
 
     @Override
-    public void onPause() {
-        getUserUseCase.cancel();
-        getProjectsUseCase.cancel();
+    public void onStop() {
+        getProjectsUseCase.unSubscribe();
     }
 
-    @Override
-    public void onResume() {
+    private class ProjectsSubscriber extends BaseSubscriber<List<Project>>{
+        @Override
+        public void onNext(List<Project> projects) {
+            view.showProjects(projects);
+        }
 
+        @Override
+        public void onCompleted() {
+            view.hideLoading();
+        }
+
+        @Override
+        public void onError(Throwable e) {
+            view.showError(e.getMessage());
+        }
     }
+
+    private class UserInfoSubscriber extends BaseSubscriber<User> {
+        @Override
+        public void onNext(User user) {
+            view.showUserInfo(user);
+            getProjectsUseCase.execute(user.getName(), new ProjectsSubscriber());
+        }
+
+        @Override
+        public void onError(Throwable e) {
+            view.showError(e.getMessage());
+        }
+    }
+
 }

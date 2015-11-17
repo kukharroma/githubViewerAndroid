@@ -1,8 +1,7 @@
-package com.mlsdev.githubviewer.data.entity.mapper;
+package com.mlsdev.githubviewer.data.entity;
 
-import com.mlsdev.githubviewer.data.entity.ProjectEntity;
 import com.mlsdev.githubviewer.domain.model.Project;
-import com.mlsdev.githubviewer.domain.utils.Lg;
+import com.mlsdev.githubviewer.domain.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,13 +10,26 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 /**
- * Created by roma on 20.05.15.
+ * Created by roma on 17.11.15.
  */
 @Singleton
-public class ProjectMapper {
+public class ModelEntityMapper {
 
     @Inject
-    public ProjectMapper() {
+    public ModelEntityMapper() {
+    }
+
+    public User transform(UserEntity userEntity) {
+        User user = null;
+        if (userEntity != null) {
+            user = new User();
+            user.setName(userEntity.getName());
+            user.setIcon(userEntity.getIcon());
+            user.setFollowers(userEntity.getFollowers());
+            user.setFollowing(userEntity.getFollowing());
+            user.setCompany(userEntity.getCompany());
+        }
+        return user;
     }
 
     public List<Project> transform(List<ProjectEntity> projectsEntities) {
@@ -34,8 +46,6 @@ public class ProjectMapper {
                 projects.add(project);
             }
         }
-        Lg.p("transforming projects");
         return projects;
     }
-
 }

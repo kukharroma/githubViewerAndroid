@@ -4,10 +4,6 @@ import android.content.Context;
 import android.os.Handler;
 
 import com.mlsdev.githubviewer.App;
-import com.mlsdev.githubviewer.data.executor.JobExecutor;
-import com.mlsdev.githubviewer.domain.executor.PostExecutionThread;
-import com.mlsdev.githubviewer.domain.executor.ThreadExecutor;
-import com.mlsdev.githubviewer.internal.di.UIThread;
 
 import javax.inject.Singleton;
 
@@ -36,18 +32,6 @@ public class ApplicationModule {
     @Singleton
     Handler providesApplicationHandler() {
         return this.application.getHandler();
-    }
-
-    @Provides
-    @Singleton
-    ThreadExecutor providesThreadExecutor(JobExecutor jobExecutor) {
-        return jobExecutor;
-    }
-
-    @Provides
-    @Singleton
-    PostExecutionThread providesPostExecutionThread(UIThread uiThread) {
-        return uiThread;
     }
 
 }

@@ -5,9 +5,9 @@ import com.mlsdev.githubviewer.data.entity.UserEntity;
 
 import java.util.List;
 
-import retrofit.Call;
 import retrofit.http.GET;
 import retrofit.http.Path;
+import rx.Observable;
 
 /**
  * Created by roma on 13.11.15.
@@ -15,8 +15,8 @@ import retrofit.http.Path;
 public interface RetrofitRestApi {
 
     @GET("users/{username}")
-    Call<UserEntity> getUser(@Path("username") String username);
+    Observable<UserEntity> getUser(@Path("username") String username);
 
     @GET("users/{username}/repos")
-    Call<List<ProjectEntity>> getRepositories(@Path("username") String username);
+    Observable<List<ProjectEntity>> getRepositories(@Path("username") String username);
 }

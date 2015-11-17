@@ -1,6 +1,7 @@
 package com.mlsdev.githubviewer.presenter.impl;
 
-import com.mlsdev.githubviewer.domain.interactor.user.GetUserUseCase;
+import com.mlsdev.githubviewer.domain.interactor.BaseSubscriber;
+import com.mlsdev.githubviewer.domain.interactor.GetUserUseCase;
 import com.mlsdev.githubviewer.domain.model.User;
 import com.mlsdev.githubviewer.presenter.SearchUserPresenter;
 import com.mlsdev.githubviewer.ui.fragment.SearchUserView;
@@ -31,29 +32,32 @@ public class SearchUserPresenterImpl implements SearchUserPresenter {
     public void searchUser(String username) {
         if (!username.isEmpty()) {
             view.showLoading();
-            getUserUseCase.execute(username, new GetUserUseCase.Callback() {
-                @Override
-                public void onSuccessUser(User user) {
-                    view.hideLoading();
-                    view.showProjects();
-                }
-
-                @Override
-                public void onFailUser(String message) {
-                    view.showError(message);
-                    view.hideLoading();
-                }
-            });
+            getUserUseCase.execute(username, new GetUserNameSubscriber());
         }
     }
 
     @Override
-    public void onPause() {
-        getUserUseCase.cancel();
+    public void onStop() {
+        getUserUseCase.unSubscribe();
     }
 
-    @Override
-    public void onResume() {
+    public class GetUserNameSubscriber extends BaseSubscriber<User> {
 
+        @Override
+        public void onCompleted() {
+            view.hideLoading();
+        }
+
+        @Override
+        public void onError(Throwable e) {
+            view.showError(e.getMessage());
+        }
+
+        @Override
+        public void onNext(User user) {
+            view.showProjects();
+        }
     }
+
+
 }

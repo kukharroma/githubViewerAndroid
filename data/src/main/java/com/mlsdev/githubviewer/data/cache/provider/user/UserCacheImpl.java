@@ -2,12 +2,10 @@ package com.mlsdev.githubviewer.data.cache.provider.user;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 
 import com.mlsdev.githubviewer.data.cache.provider.Cache;
 import com.mlsdev.githubviewer.data.cache.serializer.UserSerializerImpl;
 import com.mlsdev.githubviewer.data.entity.UserEntity;
-import com.mlsdev.githubviewer.domain.utils.Lg;
 
 import javax.inject.Inject;
 
@@ -32,8 +30,7 @@ public class UserCacheImpl implements Cache<UserEntity> {
 
     @Override
     public UserEntity get() {
-        if (isCached()){
-            Lg.u("getting user from cache");
+        if (isCached()) {
             return serializer.deserialize(preferences.getString(USER_PREFS_KEY, null));
         }
         return null;
@@ -44,7 +41,6 @@ public class UserCacheImpl implements Cache<UserEntity> {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(USER_PREFS_KEY, serializer.serialize(userEntity));
         editor.apply();
-        Lg.u("saved user in cache");
     }
 
     @Override
@@ -52,7 +48,6 @@ public class UserCacheImpl implements Cache<UserEntity> {
         SharedPreferences.Editor editor = preferences.edit();
         editor.remove(USER_PREFS_KEY);
         editor.apply();
-        Lg.u("deleted user from cache");
     }
 
     @Override

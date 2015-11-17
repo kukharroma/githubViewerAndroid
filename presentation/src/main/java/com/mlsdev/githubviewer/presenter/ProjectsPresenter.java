@@ -8,7 +8,6 @@ import com.mlsdev.githubviewer.ui.fragment.ProjectsView;
  */
 public interface ProjectsPresenter extends BasePresenter<ProjectsView> {
 
-    void getUser();
-    void getProjects();
+    void getUserAndProject();
 
 }

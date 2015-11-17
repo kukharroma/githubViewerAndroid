@@ -53,8 +53,7 @@ public class ProjectsFragment extends BaseFragment implements ProjectsView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = View.inflate(getApplication(), R.layout.fragment_projects, null);
         ButterKnife.inject(this, view);
-        presenter.getUser();
-        presenter.getProjects();
+        presenter.getUserAndProject();
         return view;
     }
 
@@ -95,14 +94,9 @@ public class ProjectsFragment extends BaseFragment implements ProjectsView {
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
-        presenter.onPause();
+    public void onStop() {
+        super.onStop();
+        presenter.onStop();
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        presenter.onResume();
-    }
 }

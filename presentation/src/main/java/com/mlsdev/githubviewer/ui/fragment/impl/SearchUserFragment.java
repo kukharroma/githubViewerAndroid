@@ -78,14 +78,8 @@ public class SearchUserFragment extends BaseFragment implements SearchUserView {
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
-        presenter.onPause();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        presenter.onResume();
+    public void onStop() {
+        super.onStop();
+        presenter.onStop();
     }
 }

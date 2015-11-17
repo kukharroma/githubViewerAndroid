@@ -9,13 +9,10 @@ public class ProjectEntity {
 
     @SerializedName("name")
     private String name;
-
     @SerializedName("language")
     private String language;
-
     @SerializedName("forks")
     private int forks;
-
     @SerializedName("stargazers_count")
     private int stars;
 

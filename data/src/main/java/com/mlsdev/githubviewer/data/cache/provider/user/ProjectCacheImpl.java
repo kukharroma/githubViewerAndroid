@@ -2,12 +2,10 @@ package com.mlsdev.githubviewer.data.cache.provider.user;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 
 import com.mlsdev.githubviewer.data.cache.provider.Cache;
 import com.mlsdev.githubviewer.data.cache.serializer.ProjectSerializerImpl;
 import com.mlsdev.githubviewer.data.entity.ProjectEntity;
-import com.mlsdev.githubviewer.domain.utils.Lg;
 
 import java.util.List;
 
@@ -34,8 +32,7 @@ public class ProjectCacheImpl implements Cache<List<ProjectEntity>> {
 
     @Override
     public List<ProjectEntity> get() {
-        if (isCached()){
-            Lg.p("getting projects from cache");
+        if (isCached()) {
             return serializer.deserialize(preferences.getString(PROJECTS_PREFS_KEY, null));
         }
         return null;
@@ -46,7 +43,6 @@ public class ProjectCacheImpl implements Cache<List<ProjectEntity>> {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(PROJECTS_PREFS_KEY, serializer.serialize(projectEntities));
         editor.apply();
-        Lg.p("saved projects in cache");
     }
 
     @Override
@@ -54,11 +50,10 @@ public class ProjectCacheImpl implements Cache<List<ProjectEntity>> {
         SharedPreferences.Editor editor = preferences.edit();
         editor.remove(PROJECTS_PREFS_KEY);
         editor.apply();
-        Lg.p("deleted projects from cache");
     }
 
     @Override
     public boolean isCached() {
-        return preferences.getString(PROJECTS_PREFS_KEY, null) !=null ;
+        return preferences.getString(PROJECTS_PREFS_KEY, null) != null;
     }
 }

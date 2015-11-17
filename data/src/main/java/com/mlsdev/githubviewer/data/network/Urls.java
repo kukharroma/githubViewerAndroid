@@ -6,30 +6,9 @@ package com.mlsdev.githubviewer.data.network;
 public class Urls {
 
     private static String BASE_URL = "https://api.github.com";
-    private static String SLASH = "/";
-
-    public interface Prefix {
-        String USERS = "/users";
-    }
-
-    public interface Action {
-
-        interface REPOSITORIES {
-            String BASE = "/repos";
-        }
-
-    }
 
     public static String apiBaseUrl() {
         return BASE_URL;
-    }
-
-    public static String userGet(String username) {
-        return apiBaseUrl() + Prefix.USERS + SLASH + username;
-    }
-
-    public static String repositoreiesGet(String username) {
-        return apiBaseUrl() + Prefix.USERS + SLASH + username + Action.REPOSITORIES.BASE  ;
     }
 
 }
