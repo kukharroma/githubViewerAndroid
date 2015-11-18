@@ -12,6 +12,7 @@ import javax.inject.Singleton;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.observers.Subscribers;
 import rx.schedulers.Schedulers;
 
 /**
@@ -21,10 +22,10 @@ import rx.schedulers.Schedulers;
 public class GetProjectsUseCaseImpl implements GetProjectsUseCase {
 
     private GitHubRepository repository;
-    private Subscription subscription;
+    private Subscription subscription = Subscribers.empty();
 
     @Inject
-    public GetProjectsUseCaseImpl(GitHubRepository repository) {
+    public GetProjectsUseCaseImpl(GitHubRepository repository)  {
         this.repository = repository;
     }
 

@@ -4,7 +4,6 @@ import android.app.Application;
 import android.os.Handler;
 
 import com.mlsdev.githubviewer.internal.di.components.ApplicationComponent;
-import com.mlsdev.githubviewer.internal.di.components.DaggerApplicationComponent;
 import com.mlsdev.githubviewer.internal.di.modules.ApplicationModule;
 import com.mlsdev.githubviewer.ui.fragment.impl.ProjectsFragment;
 import com.mlsdev.githubviewer.ui.fragment.impl.SearchUserFragment;
@@ -29,7 +28,7 @@ public class App extends Application {
     }
 
     private void initDagger(){
-        this.applicationComponent = DaggerApplicationComponent.builder().applicationModule(new ApplicationModule(this)).build();
+//        this.applicationComponent = DaggerApplicationComponent.builder().applicationModule(new ApplicationModule(this)).build();
         this.applicationComponent.inject(this);
     }
 

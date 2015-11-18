@@ -19,8 +19,8 @@ import rx.schedulers.Schedulers;
 @Singleton
 public class GetUserUseCaseImpl implements GetUserUseCase {
 
-    private GitHubRepository repository;
-    private Subscription subscription = Subscribers.empty();
+    GitHubRepository repository;
+    Subscription subscription = Subscribers.empty();
 
     @Inject
     public GetUserUseCaseImpl(GitHubRepository repository) {

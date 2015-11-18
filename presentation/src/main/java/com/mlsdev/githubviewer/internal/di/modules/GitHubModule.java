@@ -1,6 +1,7 @@
 package com.mlsdev.githubviewer.internal.di.modules;
 
 import com.mlsdev.githubviewer.data.network.api.GitHubViewerRestApi;
+import com.mlsdev.githubviewer.data.network.api.GitHubViewerRestApiImpl;
 import com.mlsdev.githubviewer.data.repository.datastore.GitHubRepositoryImpl;
 import com.mlsdev.githubviewer.domain.repository.GitHubRepository;
 
@@ -23,7 +24,7 @@ public class GitHubModule {
 
     @Provides
     @Singleton
-    GitHubViewerRestApi providesGitHubViewerRestApi(GitHubViewerRestApi gitHubViewerRestApi) {
+    GitHubViewerRestApi providesGitHubViewerRestApi(GitHubViewerRestApiImpl gitHubViewerRestApi) {
         return gitHubViewerRestApi;
     }
 

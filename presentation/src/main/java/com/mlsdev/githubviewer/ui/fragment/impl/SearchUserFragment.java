@@ -34,7 +34,7 @@ public class SearchUserFragment extends BaseFragment implements SearchUserView {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.getApplication().inject(this);
+        getApplication().inject(this);
         initialize();
     }
 

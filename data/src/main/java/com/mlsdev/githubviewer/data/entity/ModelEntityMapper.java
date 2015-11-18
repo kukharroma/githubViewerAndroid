@@ -15,10 +15,6 @@ import javax.inject.Singleton;
 @Singleton
 public class ModelEntityMapper {
 
-    @Inject
-    public ModelEntityMapper() {
-    }
-
     public User transform(UserEntity userEntity) {
         User user = null;
         if (userEntity != null) {

@@ -42,6 +42,10 @@ public class SearchUserPresenterImpl implements SearchUserPresenter {
     }
 
     public class GetUserNameSubscriber extends BaseSubscriber<User> {
+        @Override
+        public void onNext(User user) {
+            view.showProjects();
+        }
 
         @Override
         public void onCompleted() {
@@ -53,10 +57,6 @@ public class SearchUserPresenterImpl implements SearchUserPresenter {
             view.showError(e.getMessage());
         }
 
-        @Override
-        public void onNext(User user) {
-            view.showProjects();
-        }
     }
 
 
