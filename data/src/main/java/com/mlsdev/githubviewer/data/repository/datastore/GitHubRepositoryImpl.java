@@ -3,7 +3,7 @@ package com.mlsdev.githubviewer.data.repository.datastore;
 
 import com.mlsdev.githubviewer.data.cache.provider.user.ProjectCacheImpl;
 import com.mlsdev.githubviewer.data.cache.provider.user.UserCacheImpl;
-import com.mlsdev.githubviewer.data.entity.ModelEntityMapper;
+import com.mlsdev.githubviewer.data.entity.ModelEntityMapperImpl;
 import com.mlsdev.githubviewer.data.entity.ProjectEntity;
 import com.mlsdev.githubviewer.data.entity.UserEntity;
 import com.mlsdev.githubviewer.data.network.api.GitHubViewerRestApi;
@@ -14,7 +14,6 @@ import com.mlsdev.githubviewer.domain.repository.GitHubRepository;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -23,22 +22,21 @@ import rx.functions.Func1;
 /**
  * Created by roma on 17.11.15.
  */
-@Singleton
+
 public class GitHubRepositoryImpl implements GitHubRepository {
 
     private GitHubViewerRestApi restApi;
-    private ModelEntityMapper mapper;
+    private ModelEntityMapperImpl mapper;
     private UserCacheImpl userCache;
     private ProjectCacheImpl projectCache;
 
     @Inject
-    public GitHubRepositoryImpl(GitHubViewerRestApi restApi, ModelEntityMapper mapper, UserCacheImpl userCache, ProjectCacheImpl projectCache) {
+    public GitHubRepositoryImpl(GitHubViewerRestApi restApi, ModelEntityMapperImpl mapper, UserCacheImpl userCache, ProjectCacheImpl projectCache) {
         this.restApi = restApi;
         this.mapper = mapper;
         this.userCache = userCache;
         this.projectCache = projectCache;
     }
-
 
     @Override
     public Observable<User> getUserFromCache() {

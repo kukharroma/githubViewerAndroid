@@ -17,13 +17,11 @@ import dagger.Provides;
 public class PresenterModule {
 
     @Provides
-    @Singleton
     SearchUserPresenter provideSearchUserPresenter(SearchUserPresenterImpl searchUserPresenter){
         return searchUserPresenter;
     }
 
     @Provides
-    @Singleton
     ProjectsPresenter provideProjectPresenter(ProjectsPresenterImpl projectsPresenter){
         return  projectsPresenter;
     }

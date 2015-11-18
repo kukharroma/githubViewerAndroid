@@ -12,7 +12,6 @@ import javax.inject.Singleton;
 /**
  * Created by roma on 22.05.15.
  */
-@Singleton
 public class SearchUserPresenterImpl implements SearchUserPresenter {
 
     SearchUserView view;

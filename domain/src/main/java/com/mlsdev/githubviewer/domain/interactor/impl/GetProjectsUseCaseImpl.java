@@ -18,7 +18,6 @@ import rx.schedulers.Schedulers;
 /**
  * Created by roma on 21.05.15.
  */
-@Singleton
 public class GetProjectsUseCaseImpl implements GetProjectsUseCase {
 
     private GitHubRepository repository;

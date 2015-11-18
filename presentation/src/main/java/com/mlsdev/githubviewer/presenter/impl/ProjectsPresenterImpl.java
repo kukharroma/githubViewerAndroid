@@ -18,7 +18,6 @@ import dalvik.system.BaseDexClassLoader;
 /**
  * Created by roma on 22.05.15.
  */
-@Singleton
 public class ProjectsPresenterImpl implements ProjectsPresenter {
 
     ProjectsView view;

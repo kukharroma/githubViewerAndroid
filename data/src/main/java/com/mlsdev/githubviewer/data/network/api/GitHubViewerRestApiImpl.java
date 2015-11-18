@@ -18,11 +18,11 @@ import rx.Observable;
 /**
  * Created by roma on 20.05.15.
  */
-@Singleton
 public class GitHubViewerRestApiImpl implements GitHubViewerRestApi {
 
     private RetrofitRestApi retrofitRestApi;
 
+    @Inject
     public GitHubViewerRestApiImpl() {
         retrofitRestApi = new Retrofit.Builder()
                 .baseUrl(Urls.apiBaseUrl())

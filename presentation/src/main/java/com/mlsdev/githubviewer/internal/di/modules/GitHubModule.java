@@ -17,13 +17,11 @@ import dagger.Provides;
 public class GitHubModule {
 
     @Provides
-    @Singleton
     GitHubRepository providesGitHubRepository(GitHubRepositoryImpl gitHubRepository) {
         return gitHubRepository;
     }
 
     @Provides
-    @Singleton
     GitHubViewerRestApi providesGitHubViewerRestApi(GitHubViewerRestApiImpl gitHubViewerRestApi) {
         return gitHubViewerRestApi;
     }
