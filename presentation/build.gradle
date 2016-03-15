@@ -17,7 +17,7 @@ android {
     buildToolsVersion "21"
 
     defaultConfig {
-        applicationId "com.mlsdev.github_viewer"
+        applicationId "com.cooksdev.github_viewer"
         minSdkVersion 15
         targetSdkVersion 21
         versionCode 1
