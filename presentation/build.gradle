@@ -14,7 +14,7 @@ buildscript{
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "21"
+    buildToolsVersion '23.0.2'
 
     defaultConfig {
         applicationId "com.cooksdev.github_viewer"
