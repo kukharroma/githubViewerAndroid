@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.inputmethod.InputMethodManager;
 
+import com.crashlytics.android.Crashlytics;
 import com.mlsdev.github_viewer.R;
 import com.mlsdev.githubviewer.ui.activity.core.BaseActivity;
 import com.mlsdev.githubviewer.ui.fragment.impl.ProjectsFragment;
 import com.mlsdev.githubviewer.ui.fragment.impl.SearchUserFragment;
+import io.fabric.sdk.android.Fabric;
 
 /**
  * Created by roma on 22.05.15.
@@ -17,6 +19,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_main);
         showSearchUser();
     }
