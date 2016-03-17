@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">github-viewer</string>
+    <string name="app_name">GithubViewer</string>
     <string name="search_user">search user</string>
     <string name="input_github_username">input github username:</string>
     <string name="repositories">repositories</string>
