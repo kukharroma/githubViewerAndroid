@@ -28,8 +28,8 @@ android {
         applicationId "com.cooksdev.github_viewer"
         minSdkVersion 15
         targetSdkVersion 21
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.01"
     }
 
     buildTypes {
