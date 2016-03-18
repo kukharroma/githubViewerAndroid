@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">domain</string>
+    <string name="connot_get_user">Can't get user</string>
 </resources>

@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
-
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.mlsdev.github_viewer.R;
 import com.mlsdev.githubviewer.domain.model.Project;
@@ -35,12 +34,18 @@ public class ProjectsFragment extends BaseFragment implements ProjectsView {
     @Inject
     ProjectsPresenter presenter;
 
-    @InjectView(R.id.tv_followers) TextView tvFollowers;
-    @InjectView(R.id.tv_following) TextView tvFollowing;
-    @InjectView(R.id.tv_user_company_name) TextView tvCompanyName;
-    @InjectView(R.id.iv_user_icon) RoundedImageView ivUserIcon;
-    @InjectView(R.id.listView) ListView lvProjects;
-    @InjectView(R.id.pb_projects) ProgressWheel pbProjects;
+    @InjectView(R.id.tv_followers)
+    TextView tvFollowers;
+    @InjectView(R.id.tv_following)
+    TextView tvFollowing;
+    @InjectView(R.id.tv_user_company_name)
+    TextView tvCompanyName;
+    @InjectView(R.id.iv_user_icon)
+    RoundedImageView ivUserIcon;
+    @InjectView(R.id.listView)
+    ListView lvProjects;
+    @InjectView(R.id.pb_projects)
+    ProgressWheel pbProjects;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,6 +70,11 @@ public class ProjectsFragment extends BaseFragment implements ProjectsView {
 
     @Override
     public void showUserInfo(User user) {
+        if (user == null) {
+            showError(getString(R.string.connot_get_user));
+            return;
+        }
+
         tvCompanyName.setText(user.getName());
         tvFollowing.setText(user.getFollowing() + "\n" + getApplication().getResources().getString(R.string.following));
         tvFollowers.setText(user.getFollowers() + "\n" + getApplication().getResources().getString(R.string.followers));
